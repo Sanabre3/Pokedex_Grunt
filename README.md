@@ -1200,7 +1200,6 @@ Copyright (c) 2024 Seu Nome
 
 ## 📊 **Estatísticas do Projeto**
 
-```
 <details>
 <summary>📊 <strong>Repository Stats</strong></summary>
 
@@ -1222,7 +1221,7 @@ Copyright (c) 2024 Seu Nome
 </div>
 
 </details>
-```
+
 
 
 

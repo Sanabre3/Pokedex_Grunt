@@ -36,9 +36,9 @@
 - [🚀 Performance](#-performance-e-otimizações)
 - [🔧 Desenvolvimento](#-guia-de-desenvolvimento)
 - [🗺️ Roadmap](#️-roadmap)
-- [🤝 Contribuição](#-contribuição)
 - [📊 Status](#-status-do-projeto)
 - [📄 Licença](#-licença)
+- [📈 Estatisticas](#-estatísticas-do-projeto)
 
 </details>
 
@@ -1211,6 +1211,7 @@ Copyright (c) 2024 Seu Nome
 </div>
 
 </details>
+
 
 
 

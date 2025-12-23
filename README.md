@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Header]((https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12&height=180&section=header&text=Pok%C3%A9dx%20Grunt&fontSize=50&fontColor=fff&animation=twinkling&fontAlignY=35&desc=Uma%20experi%C3%AAncia%20Pok%C3%A9mon%20moderna%20na%20web&descAlignY=55&descSize=15))
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12&height=180&section=header&text=Pok%C3%A9dex%20Grunt&fontSize=50&fontColor=fff&animation=twinkling&fontAlignY=35&desc=Uma%20experi%C3%AAncia%20Pok%C3%A9mon%20moderna%20na%20web&descAlignY=55&descSize=15" alt="Pokédx Grunt Header"/>
 
 [![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=for-the-badge&logo=github)](https://github.com/Sanabre3/pokedex-grunt)
 [![Version](https://img.shields.io/badge/Version-1.0.0--beta-orange?style=for-the-badge&logo=semver)](https://github.com/Sanabre3/pokedex-grunt/releases)
@@ -1190,23 +1190,44 @@ Copyright (c) 2024 Seu Nome
 
 **🎮 Gotta Code 'Em All! 🎮**
 
-![Footer](https://via.placeholder.com/800x100/667eea/FFFFFF?text=Thank%20you%20for%20using%20Pok%C3%A9dex%20Grunt!)
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12&height=100&section=footer&text=Thank%20you%20for%20visiting!&fontSize=30&fontColor=fff&animation=fadeIn"/>
 
 </div>
 
 ---
 
 <details>
-<summary>📊 <strong>Repository Stats</strong></summary>
+<summary>�� <strong>Repository Stats</strong></summary>
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=seu-usuario&repo=pokedex-grunt&theme=vue-dark&show_icons=true)
+### 📈 **GitHub Statistics**
 
-![Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=seu-usuario&layout=compact&theme=vue-dark)
+<table align="center">
+<tr>
+<td align="center">
+<img src="https://github-readme-stats.vercel.app/api?username=Sanabre3&theme=vue-dark&show_icons=true&hide_border=true&count_private=true" alt="GitHub Stats"/>
+</td>
+</tr>
+<tr>
+<td align="center">
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Sanabre3&layout=compact&theme=vue-dark&hide_border=true&langs_count=8" alt="Most Used Languages"/>
+</td>
+</tr>
+<tr>
+<td align="center">
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=Sanabre3&theme=vue-dark&hide_border=true" alt="GitHub Streak"/>
+</td>
+</tr>
+</table>
+
+### 🏆 **GitHub Metrics**
+
+![GitHub metrics](https://metrics.lecoq.io/Sanabre3?template=classic&config.timezone=America%2FSao_Paulo)
 
 </div>
 
 </details>
+
 
 

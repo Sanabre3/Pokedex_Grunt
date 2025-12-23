@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex - Grunt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <span class="pokeball-icon"></span>
+                Pokedex - Grunt
+            </h1>
+            <div class="header-controls">
+                <button class="theme-toggle" id="theme-toggle">
+                    <span class="theme-text">D A R K </span>
+                </button>
+                <button class="favorites-toggle" id="favorites-toggle">
+                    Favoritos (<span id="favorites-count">0</span>)
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <!--Busca-->
+            <section class="search-section">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Buscar por nome ou ID do Pokemon" class="search-input">
+                    <button class="search-btn" id="search-btn"></button>
+                </div>
+                <div class="filters">
+                    <select id="type-filter" class="filter-select">
+                        <option value="">Todos os tipos</option>
+                    </select>
+                    <select id="generation-filter" class="filter-select">
+                        <option value="">Todas as Geracoes</option>
+                        <option value="1">Geracao I (1-151)</option>
+                        <option value="2">Geracao II (152-251)</option>
+                        <option value="3">Geracao III (252-386)</option>
+                    </select>
+                </div>
+            </section>
+            <!--Lista de Pokemons-->
+            <section class="pokemon-grid" id="pokemon-grid">
+                <div class="loading" id="loading">
+                    <div class="pokeball-loading"></div>
+                    <p>Carregando...</p>
+                </div>
+            </section>
+            <!--Paginacao-->
+            <div class="pagination" id="pagination">
+                <button class="btn-pagination" id="prev-btn" disabled>← Anterior</button>
+                <span class="page-info" id="page-info">Pagina 1</span>
+                <button class="btn-pagination" id="next-btn">Proximo →</button>
+            </div>
+        </div>
+    </main>
+    <!--Detalhes-->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal" id="pokemon-modal">
+            <button class="modal-close" id="modal-close">Home</button>
+            <div class="modal-content" id="modal-content">
+                <!--Preenchimento Dinamico-->
+            </div>
+        </div>
+    </div>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/pokemon.js"></script>
+    <script src="scripts/favorites.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

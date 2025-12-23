@@ -1,0 +1,58 @@
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid @secondary-color;
+}
+
+.container {
+    display: block;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: @primary-color;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.header-controls {
+    display: flex;
+    gap: 15px;
+}
+
+button {
+    background: @primary-color;
+    color: #fff;
+    margin: 0 3px 5px;
+    padding: 10px 20px;
+    border-radius: @border-radius;
+    cursor: pointer;
+    transition: @transition;
+
+    &:hover {
+        background: darken(@primary-color, 10%);
+        transform: translateY(-2px);
+    }
+}
+
+.card-header {
+    margin-bottom: 8px;
+    padding: 10px 0;
+
+    .pokemon-id {
+        font-size: 0.8rem;
+    }
+
+    .favorite-btn {
+        font-size: 1.3rem;
+    }
+}
+

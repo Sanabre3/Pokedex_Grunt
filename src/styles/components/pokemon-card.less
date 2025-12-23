@@ -1,0 +1,32 @@
+#pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    padding: 16px;
+    align-items: stretch;
+}
+
+#pokemon-grid .pokemon-card {
+  width: 100%;
+  max-width: 100%;
+}
+
+
+.pokemon-card {
+    background: #fff;
+    border-radius: @border-radius;
+    padding: 14px;
+    box-shadow: @shadow;
+    transition: @transition;
+    align-items: stretch;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.pokemon-image img {
+    width: 96px;
+    height: 96px;
+}

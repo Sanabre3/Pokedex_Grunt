@@ -1,0 +1,23 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "Pokédex interativa usando PokéAPI",
+  "main": "index.js",
+  "scripts": {
+    "dev": "grunt",
+    "build": "grunt build",
+    "watch": "grunt watch"
+  },
+  "author": "Sanabre",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.6.1",
+    "grunt-contrib-clean": "^2.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-htmlmin": "^3.1.0",
+    "grunt-contrib-less": "^3.0.0",
+    "grunt-contrib-uglify": "^5.2.2",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-replace": "^2.0.2"
+  }
+}

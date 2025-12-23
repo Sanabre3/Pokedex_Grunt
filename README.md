@@ -1183,8 +1183,8 @@ Copyright (c) 2024 Seu Nome
 ### 🚀 **Ready to Explore?**
 
 [![Get Started](https://img.shields.io/badge/Get%20Started-Now!-brightgreen?style=for-the-badge&logo=rocket)](/#-instalação-rápida)
-[![Star this repo](https://img.shields.io/badge/⭐-Star%20this%20repo-yellow?style=for-the-badge)](https://github.com/seu-usuario/pokedex-grunt)
-[![Follow](https://img.shields.io/badge/Follow-@seu--usuario-blue?style=for-the-badge&logo=github)](https://github.com/seu-usuario)
+[![Star this repo](https://img.shields.io/badge/⭐-Star%20this%20repo-yellow?style=for-the-badge)](https://github.com/Sanabre3/pokedex-grunt)
+[![Follow](https://img.shields.io/badge/Follow-@seu--usuario-blue?style=for-the-badge&logo=github)](https://github.com/Sanabre3)
 
 ---
 
@@ -1205,22 +1205,28 @@ Copyright (c) 2024 Seu Nome
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Sanabre3&theme=vue-dark&show_icons=true&hide_border=true)
+### 📈 **Informações do Projeto**
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Sanabre3&layout=compact&theme=vue-dark&hide_border=true)
+![GitHub repo size](https://img.shields.io/github/repo-size/Sanabre3/Pokedex_Grunt?style=for-the-badge&color=blue)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Sanabre3/Pokedex_Grunt?style=for-the-badge&color=green)
+![GitHub last commit](https://img.shields.io/github/last-commit/Sanabre3/Pokedex_Grunt?style=for-the-badge&color=orange)
 
-### 📈 **Métricas do Repositório**
+![GitHub issues](https://img.shields.io/github/issues/Sanabre3/Pokedex_Grunt?style=for-the-badge&color=red)
+![GitHub stars](https://img.shields.io/github/stars/Sanabre3/Pokedex_Grunt?style=for-the-badge&color=yellow)
+![GitHub forks](https://img.shields.io/github/forks/Sanabre3/Pokedex_Grunt?style=for-the-badge&color=purple)
 
-![GitHub repo size](https://img.shields.io/github/repo-size/Sanabre3/Pokedex_Grunt?style=flat-square)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Sanabre3/Pokedex_Grunt?style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/Sanabre3/Pokedex_Grunt?style=flat-square)
-![GitHub issues](https://img.shields.io/github/issues/Sanabre3/Pokedex_Grunt?style=flat-square)
-![GitHub stars](https://img.shields.io/github/stars/Sanabre3/Pokedex_Grunt?style=flat-square)
-![GitHub forks](https://img.shields.io/github/forks/Sanabre3/Pokedex_Grunt?style=flat-square)
+### 💻 **Tecnologias Principais**
+
+![JavaScript](https://img.shields.io/badge/JavaScript-85%-yellow?style=for-the-badge&logo=javascript)
+![CSS](https://img.shields.io/badge/CSS-10%-blue?style=for-the-badge&logo=css3)
+![HTML](https://img.shields.io/badge/HTML-5%-orange?style=for-the-badge&logo=html5)
 
 </div>
 
 </details>
+```
+
+
 
 
 

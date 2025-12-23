@@ -1,0 +1,288 @@
+// ===================================
+// DARK THEME - COMPLETE & ORGANIZED
+// ===================================
+
+// Dark theme activation
+body.dark-theme {
+  // Override CSS variables
+  --bg-color: #1a1a2e;
+  --text-color: #eee;
+  --card-bg: #16213e;
+  --card-border: #333;
+  --header-bg: #0f0f23;
+  --input-bg: #16213e;
+  --input-border: #444;
+  --modal-bg: #16213e;
+  --skeleton-bg: #2a2a3e;
+  --shadow-light: 0 4px 20px rgba(0,0,0,0.4);
+
+  // Apply theme colors
+  background-color: var(--bg-color);
+  color: var(--text-color);
+
+  // Header
+  .header {
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--card-border);
+    
+    .logo {
+      color: var(--text-color);
+    }
+  }
+
+  // Pokemon Cards
+  .pokemon-card {
+    background-color: var(--card-bg);
+    border-color: var(--card-border);
+    box-shadow: var(--shadow-light);
+
+    &:hover {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    }
+
+    .pokemon-name {
+      color: var(--text-color);
+    }
+
+    .pokemon-id {
+      color: #999;
+    }
+
+    .stat-name {
+      color: #ccc;
+    }
+
+    .stat-value {
+      color: var(--text-color);
+    }
+  }
+
+  // Forms
+  .search-input,
+  .filter-select {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border-color: var(--input-border);
+
+    &::placeholder {
+      color: #888;
+    }
+
+    &:focus {
+      border-color: #4ecdc4;
+      box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+    }
+  }
+
+  .search-btn {
+    background-color: var(--input-bg);
+    border-color: var(--input-border);
+    color: var(--text-color);
+
+    &:hover {
+      background-color: #2a2a3e;
+    }
+  }
+
+  // Modal
+  .modal {
+    background-color: var(--modal-bg);
+    color: var(--text-color);
+    border-color: var(--card-border);
+  }
+
+  .modal-overlay {
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  .modal-close {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--input-border);
+
+    &:hover {
+      background-color: #2a2a3e;
+    }
+  }
+
+  // Tabs
+  .tab-btn {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--input-border);
+
+    &.active {
+      background-color: #4ecdc4;
+      color: white;
+      border-color: #4ecdc4;
+    }
+
+    &.loaded:not(.active) {
+      border-color: #4ecdc4;
+      color: #4ecdc4;
+    }
+  }
+
+  // Pagination
+  .btn-pagination {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--input-border);
+
+    &:hover:not(:disabled) {
+      background-color: #2a2a3e;
+    }
+  }
+
+  .page-info {
+    color: var(--text-color);
+  }
+
+  // Stats
+  .stat-progress {
+    background-color: #2a2a3e;
+
+    .stat-fill {
+      background: linear-gradient(90deg, #4ecdc4, #44a08d);
+    }
+  }
+
+  // Pokemon details
+  .pokemon-description {
+    color: var(--text-color);
+
+    &.loading-text {
+      color: #888;
+    }
+  }
+
+  .measurement {
+    .label {
+      color: #ccc;
+    }
+    
+    .value {
+      color: var(--text-color);
+    }
+  }
+
+  .abilities-list {
+    color: var(--text-color);
+
+    strong {
+      color: #4ecdc4;
+    }
+  }
+
+  .move-tag {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--input-border);
+
+    &:hover {
+      background-color: #2a2a3e;
+    }
+  }
+
+  // Buttons
+  .favorite-btn {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--input-border);
+
+    &.active {
+      background-color: #f06292;
+      border-color: #f06292;
+      color: white;
+    }
+
+    &:hover {
+      background-color: #2a2a3e;
+    }
+  }
+
+  .favorites-toggle {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--input-border);
+
+    &:hover {
+      background-color: #2a2a3e;
+    }
+
+    &.active {
+      background-color: #f06292;
+      color: white;
+      border-color: #f06292;
+    }
+  }
+
+  // Loading states
+  .loading {
+    color: var(--text-color);
+  }
+
+  .error-message {
+    background-color: var(--card-bg);
+    border-color: var(--card-border);
+    color: var(--text-color);
+
+    .retry-btn {
+      background-color: #f06292;
+      color: white;
+      border: none;
+
+      &:hover {
+        background-color: #e91e63;
+      }
+    }
+  }
+
+  // Skeleton loading
+  .loading-stat,
+  .skeleton-line,
+  .skeleton-tag,
+  .skeleton-card {
+    background: linear-gradient(90deg, var(--skeleton-bg) 25%, #3a3a4e 50%, var(--skeleton-bg) 75%);
+    background-size: 200% 100%;
+    animation: loading-shimmer-dark 1.5s infinite;
+  }
+
+  // Pokemon types - vibrant colors for dark mode
+  .type {
+    &.type-fire { background-color: #ff6b6b; }
+    &.type-water { background-color: #4dabf7; }
+    &.type-electric { background-color: #ffd43b; color: #333; }
+    &.type-grass { background-color: #51cf66; }
+    &.type-ice { background-color: #74c0fc; }
+    &.type-fighting { background-color: #f06292; }
+    &.type-poison { background-color: #ba68c8; }
+    &.type-ground { background-color: #ffab91; }
+    &.type-flying { background-color: #81c784; }
+    &.type-psychic { background-color: #f48fb1; }
+    &.type-bug { background-color: #aed581; }
+    &.type-rock { background-color: #a1887f; }
+    &.type-ghost { background-color: #9575cd; }
+    &.type-dragon { background-color: #7986cb; }
+    &.type-dark { background-color: #6d4c41; }
+    &.type-steel { background-color: #90a4ae; }
+    &.type-fairy { background-color: #f8bbd9; color: #333; }
+    &.type-normal { background-color: #bcaaa4; }
+    &.type-loading { 
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4); 
+      color: white;
+      animation: pulse 1.5s infinite;
+    }
+  }
+}
+
+// Dark mode animations
+@keyframes loading-shimmer-dark {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}

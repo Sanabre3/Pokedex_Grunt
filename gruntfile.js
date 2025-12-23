@@ -3,16 +3,25 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON("package.json"),
 
     // =====================
-    // LESS
+    // LESS - CORRIGIDO
     // =====================
     less: {
       dev: {
+        options: {
+          paths: ["src/styles"], // Adicionar paths
+          compress: false,
+          sourceMap: true,
+          sourceMapFilename: "dev/styles/main.css.map"
+        },
         files: {
           "dev/styles/main.css": "src/styles/main.less",
         },
       },
       dist: {
-        options: { compress: true },
+        options: { 
+          compress: true,
+          paths: ["src/styles"]
+        },
         files: {
           "dist/styles/main.min.css": "src/styles/main.less",
         },
@@ -38,51 +47,50 @@ module.exports = function (grunt) {
     },
 
     // =====================
-    // HTML DEV (GERA dev/index.html SEMPRE)
+    // HTML REPLACEMENT
     // =====================
-replace: {
-  dev: {
-    options: {
-      prefix: '@@',
-      patterns: [
-        { match: 'ENDERECO_DO_CSS', replacement: 'styles/main.css' },
-        { match: 'ENDERECO_DO_JS_API', replacement: 'scripts/api.js' },
-        { match: 'ENDERECO_DO_JS_POKEMON', replacement: 'scripts/pokemon.js' },
-        { match: 'ENDERECO_DO_JS_FAVORITES', replacement: 'scripts/favorites.js' },
-        { match: 'ENDERECO_DO_JS_MAIN', replacement: 'scripts/main.js' }
-      ]
-    },
-    files: [
-      {
-        expand: true,
-        cwd: 'src',
-        src: ['index.html'],
-        dest: 'dev/'
+    replace: {
+      dev: {
+        options: {
+          prefix: '@@',
+          patterns: [
+            { match: 'ENDERECO_DO_CSS', replacement: 'styles/main.css' },
+            { match: 'ENDERECO_DO_JS_API', replacement: 'scripts/api.js' },
+            { match: 'ENDERECO_DO_JS_POKEMON', replacement: 'scripts/pokemon.js' },
+            { match: 'ENDERECO_DO_JS_FAVORITES', replacement: 'scripts/favorites.js' },
+            { match: 'ENDERECO_DO_JS_MAIN', replacement: 'scripts/main.js' }
+          ]
+        },
+        files: [
+          {
+            expand: true,
+            cwd: 'src',
+            src: ['index.html'],
+            dest: 'dev/'
+          }
+        ]
+      },
+      dist: {
+        options: {
+          prefix: '@@',
+          patterns: [
+            { match: 'ENDERECO_DO_CSS', replacement: 'styles/main.min.css' },
+            { match: 'ENDERECO_DO_JS_API', replacement: 'scripts/api.min.js' },
+            { match: 'ENDERECO_DO_JS_POKEMON', replacement: 'scripts/pokemon.min.js' },
+            { match: 'ENDERECO_DO_JS_FAVORITES', replacement: 'scripts/favorites.min.js' },
+            { match: 'ENDERECO_DO_JS_MAIN', replacement: 'scripts/main.min.js' }
+          ]
+        },
+        files: [
+          {
+            expand: true,
+            cwd: 'prebuild',
+            src: ['index.html'],
+            dest: 'dist/'
+          }
+        ]
       }
-    ]
-  },
-
-  dist: {
-    options: {
-      prefix: '@@',
-      patterns: [
-        { match: 'ENDERECO_DO_CSS', replacement: 'styles/main.min.css' },
-        { match: 'ENDERECO_DO_JS_API', replacement: 'scripts/api.min.js' },
-        { match: 'ENDERECO_DO_JS_POKEMON', replacement: 'scripts/pokemon.min.js' },
-        { match: 'ENDERECO_DO_JS_FAVORITES', replacement: 'scripts/favorites.min.js' },
-        { match: 'ENDERECO_DO_JS_MAIN', replacement: 'scripts/main.min.js' }
-      ]
     },
-    files: [
-      {
-        expand: true,
-        cwd: 'prebuild',
-        src: ['index.html'],
-        dest: 'dist/'
-      }
-    ]
-  }
-},
 
     // =====================
     // BUILD DIST
@@ -113,12 +121,15 @@ replace: {
     clean: ["prebuild"],
 
     // =====================
-    // WATCH
+    // WATCH - MELHORADO
     // =====================
     watch: {
       styles: {
         files: ["src/styles/**/*.less"],
         tasks: ["less:dev"],
+        options: {
+          livereload: true
+        }
       },
       scripts: {
         files: ["src/scripts/**/*.js"],
@@ -129,6 +140,20 @@ replace: {
         tasks: ["replace:dev"],
       },
     },
+
+    // =====================
+    // CONNECT - SERVIDOR LOCAL
+    // =====================
+    connect: {
+      server: {
+        options: {
+          port: 8000,
+          base: 'dev',
+          open: true,
+          livereload: true
+        }
+      }
+    }
   });
 
   grunt.loadNpmTasks("grunt-contrib-less");
@@ -138,16 +163,19 @@ replace: {
   grunt.loadNpmTasks("grunt-contrib-htmlmin");
   grunt.loadNpmTasks("grunt-contrib-clean");
   grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.loadNpmTasks("grunt-contrib-connect");
 
-  // DEV: SEMPRE GERA dev/index.html
-  grunt.registerTask("default", [
+  // TASKS ORGANIZADAS
+  grunt.registerTask("default", ["build:dev", "connect", "watch"]);
+  grunt.registerTask("dev", ["build:dev", "watch"]);
+  grunt.registerTask("serve", ["build:dev", "connect", "watch"]);
+  
+  grunt.registerTask("build:dev", [
     "less:dev",
-    "copy:dev",
-    "replace:dev",
-    "watch",
+    "copy:dev", 
+    "replace:dev"
   ]);
 
-  // BUILD
   grunt.registerTask("build", [
     "less:dist",
     "copy:dist",

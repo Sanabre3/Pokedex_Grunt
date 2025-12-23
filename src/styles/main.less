@@ -5,16 +5,20 @@
 @import "base/typography.less";
 @import "base/layout.less";
 
-// Components
+// Components (apenas os que existem)
 @import "components/header.less";
 @import "components/search.less";
 @import "components/pokemon-card.less";
 @import "components/pagination.less";
 @import "components/modal.less";
 @import "components/loading.less";
+@import "components/buttons.less";
+@import "components/lazy-loading.less";
 
-// States
-@import "states/dark-theme.less";
+// Themes (IMPORTANTE: por último para override)
+@import "themes/light-theme.less";
+@import "themes/dark-theme.less";
+
+// States (apenas os que existem)
 @import "states/error.less";
 @import "states/offline.less";
-

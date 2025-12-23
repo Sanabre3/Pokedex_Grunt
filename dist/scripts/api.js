@@ -5,7 +5,6 @@ class PokeAPI {
         this.cacheTimeout = 5 * 60 * 1000; // 5 minutos
     }
 
-    // Método para limpar cache antigo
     clearExpiredCache() {
         const now = Date.now();
         for (const [key, value] of this.cache.entries()) {
@@ -15,19 +14,14 @@ class PokeAPI {
         }
     }
 
-    // Busca lista de Pokémons com limite e offset opcional
     async fetchPokemonList(limit = 20, offset = 0) {
-        // Limpa cache antigo (se usar cache para lista)
         this.clearExpiredCache();
-
-        // Tenta obter do cache
         const cacheKey = `pokemon-list-${limit}-${offset}`;
         const cached = this.cache.get(cacheKey);
         if (cached && (Date.now() - cached.timestamp) < this.cacheTimeout) {
             return cached.data;
         }
 
-        // Monta a URL com limit/offset
         const url = `${this.baseURL}pokemon?limit=${limit}&offset=${offset}`;
         try {
             const response = await fetch(url);
@@ -35,12 +29,55 @@ class PokeAPI {
                 throw new Error(`Erro ao buscar lista de Pokémons: ${response.status}`);
             }
             const data = await response.json();
-            // Salva no cache
             this.cache.set(cacheKey, { data, timestamp: Date.now() });
             return data;
         } catch (error) {
             console.error('Erro ao buscar lista de Pokémons:', error);
             throw error;
+        }
+    }
+
+    async fetchPokemon(identifier) {
+        const url = typeof identifier === 'string' && identifier.startsWith('http')
+            ? identifier
+            : `${this.baseURL}pokemon/${identifier}`;
+
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Erro ao buscar Pokémon');
+        }
+        return response.json();
+    }
+
+    async fetchPokemonTypes() {
+        const response = await fetch(`${this.baseURL}type`);
+        if (!response.ok) {
+            throw new Error('Erro ao buscar tipos');
+        }
+        const data = await response.json();
+        return data.results;
+    }
+
+    // ← MÉTODO FALTANTE ADICIONADO
+    async fetchPokemonSpecies(id) {
+        const cacheKey = `species-${id}`;
+        const cached = this.cache.get(cacheKey);
+        if (cached && (Date.now() - cached.timestamp) < this.cacheTimeout) {
+            return cached.data;
+        }
+
+        const url = `${this.baseURL}pokemon-species/${id}`;
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Erro ao buscar espécie: ${response.status}`);
+            }
+            const data = await response.json();
+            this.cache.set(cacheKey, { data, timestamp: Date.now() });
+            return data;
+        } catch (error) {
+            console.error('Erro ao buscar espécie:', error);
+            return null;
         }
     }
 }

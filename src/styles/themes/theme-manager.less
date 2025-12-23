@@ -1,0 +1,100 @@
+/**
+ * ===================================
+ * THEME MANAGER - CLEAN & SIMPLE
+ * ===================================
+ */
+
+class ThemeManager {
+  constructor() {
+    this.storageKey = 'pokedex-theme';
+    this.themes = {
+      LIGHT: 'light',
+      DARK: 'dark'
+    };
+    
+    this.init();
+  }
+
+  init() {
+    this.loadSavedTheme();
+    this.setupToggleButton();
+  }
+
+  loadSavedTheme() {
+    const savedTheme = localStorage.getItem(this.storageKey);
+    const theme = savedTheme || this.themes.LIGHT;
+    this.setTheme(theme);
+  }
+
+  setTheme(theme) {
+    const isValid = Object.values(this.themes).includes(theme);
+    if (!isValid) return;
+
+    // Apply theme
+    document.documentElement.setAttribute('data-theme', theme);
+    
+    // Update toggle button
+    this.updateToggleButton(theme);
+    
+    // Save to storage
+    localStorage.setItem(this.storageKey, theme);
+    
+    console.log(`🎨 Theme changed to: ${theme}`);
+  }
+
+  toggleTheme() {
+    const currentTheme = this.getCurrentTheme();
+    const newTheme = currentTheme === this.themes.DARK 
+      ? this.themes.LIGHT 
+      : this.themes.DARK;
+    
+    this.setTheme(newTheme);
+  }
+
+  getCurrentTheme() {
+    return document.documentElement.getAttribute('data-theme') || this.themes.LIGHT;
+  }
+
+  updateToggleButton(theme) {
+    const toggleButton = document.getElementById('theme-toggle');
+    const themeText = toggleButton?.querySelector('.theme-text');
+    
+    if (!toggleButton || !themeText) return;
+
+    const isDark = theme === this.themes.DARK;
+    
+    // Update text
+    themeText.textContent = isDark ? 'L I G H T' : 'D A R K';
+    
+    // Update button class
+    toggleButton.classList.toggle('dark-active', isDark);
+  }
+
+  setupToggleButton() {
+    const toggleButton = document.getElementById('theme-toggle');
+    
+    if (toggleButton) {
+      toggleButton.addEventListener('click', () => {
+        this.toggleTheme();
+      });
+    }
+  }
+
+  // Public API
+  enableDarkMode() {
+    this.setTheme(this.themes.DARK);
+  }
+
+  enableLightMode() {
+    this.setTheme(this.themes.LIGHT);
+  }
+
+  isDarkMode() {
+    return this.getCurrentTheme() === this.themes.DARK;
+  }
+}
+
+// Export for global use
+window.themeManager = new ThemeManager();
+
+export default ThemeManager;

@@ -1,0 +1,134 @@
+/* ===================================
+   THEME VARIABLES - CLEAN APPROACH
+   ================================== */
+
+:root {
+  /* Light Theme (Default) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  
+  --card-bg: #ffffff;
+  --card-border: #e0e0e0;
+  --card-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  
+  --input-bg: #ffffff;
+  --input-border: #ddd;
+  --input-focus: #4ecdc4;
+  
+  --button-primary: #4ecdc4;
+  --button-secondary: #f06292;
+  --button-muted: #6c757d;
+  
+  --header-bg: #ffffff;
+  --modal-bg: #ffffff;
+  --modal-overlay: rgba(0,0,0,0.5);
+  
+  /* Transition */
+  --transition-theme: all 0.3s ease;
+}
+
+/* Dark Theme Override */
+[data-theme="dark"] {
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --text-primary: #eeeeee;
+  --text-secondary: #cccccc;
+  --text-muted: #999999;
+  
+  --card-bg: #16213e;
+  --card-border: #333333;
+  --card-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  
+  --input-bg: #16213e;
+  --input-border: #444444;
+  --input-focus: #4ecdc4;
+  
+  --button-primary: #4ecdc4;
+  --button-secondary: #f06292;
+  --button-muted: #6c757d;
+  
+  --header-bg: #0f0f23;
+  --modal-bg: #16213e;
+  --modal-overlay: rgba(0,0,0,0.8);
+}
+
+/* Base Styles */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: var(--transition-theme);
+}
+
+/* Components */
+.header {
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--card-border);
+  transition: var(--transition-theme);
+}
+
+.pokemon-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition-theme);
+}
+
+.pokemon-name {
+  color: var(--text-primary);
+}
+
+.pokemon-id {
+  color: var(--text-muted);
+}
+
+.search-input,
+.filter-select {
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-primary);
+  transition: var(--transition-theme);
+}
+
+.search-input:focus,
+.filter-select:focus {
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+}
+
+.search-btn,
+.btn-pagination {
+  background-color: var(--card-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-primary);
+  transition: var(--transition-theme);
+}
+
+.modal {
+  background-color: var(--modal-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--card-border);
+}
+
+.modal-overlay {
+  background-color: var(--modal-overlay);
+}
+
+.tab-btn {
+  background-color: var(--card-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-primary);
+  transition: var(--transition-theme);
+}
+
+.tab-btn.active {
+  background-color: var(--button-primary);
+  border-color: var(--button-primary);
+  color: white;
+}
+
+.page-info {
+  color: var(--text-primary);
+}

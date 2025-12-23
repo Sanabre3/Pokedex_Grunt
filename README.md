@@ -1184,7 +1184,7 @@ Copyright (c) 2024 Seu Nome
 
 [![Get Started](https://img.shields.io/badge/Get%20Started-Now!-brightgreen?style=for-the-badge&logo=rocket)](/#-instalação-rápida)
 [![Star this repo](https://img.shields.io/badge/⭐-Star%20this%20repo-yellow?style=for-the-badge)](https://github.com/Sanabre3/pokedex-grunt)
-[![Follow](https://img.shields.io/badge/Follow-@seu--usuario-blue?style=for-the-badge&logo=github)](https://github.com/Sanabre3)
+[![Follow](https://img.shields.io/badge/Follow-@Sanabre3-blue?style=for-the-badge&logo=github)](https://github.com/Sanabre3)
 
 ---
 
@@ -1207,24 +1207,25 @@ Copyright (c) 2024 Seu Nome
 
 ### 📈 **Informações do Projeto**
 
-![GitHub repo size](https://img.shields.io/github/repo-size/Sanabre3/Pokedex_Grunt?style=for-the-badge&color=blue)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Sanabre3/Pokedex_Grunt?style=for-the-badge&color=green)
-![GitHub last commit](https://img.shields.io/github/last-commit/Sanabre3/Pokedex_Grunt?style=for-the-badge&color=orange)
+![Repo Size](https://img.shields.io/github/repo-size/Sanabre3/Pokedex_Grunt)
+![Commits](https://img.shields.io/github/commit-activity/m/Sanabre3/Pokedex_Grunt)
+![Last Commit](https://img.shields.io/github/last-commit/Sanabre3/Pokedex_Grunt)
 
-![GitHub issues](https://img.shields.io/github/issues/Sanabre3/Pokedex_Grunt?style=for-the-badge&color=red)
-![GitHub stars](https://img.shields.io/github/stars/Sanabre3/Pokedex_Grunt?style=for-the-badge&color=yellow)
-![GitHub forks](https://img.shields.io/github/forks/Sanabre3/Pokedex_Grunt?style=for-the-badge&color=purple)
+![Issues](https://img.shields.io/github/issues/Sanabre3/Pokedex_Grunt)
+![Stars](https://img.shields.io/github/stars/Sanabre3/Pokedex_Grunt)
+![Forks](https://img.shields.io/github/forks/Sanabre3/Pokedex_Grunt)
 
-### 💻 **Tecnologias Principais**
+### 💻 **Stack do Projeto**
 
-![JavaScript](https://img.shields.io/badge/JavaScript-85%-yellow?style=for-the-badge&logo=javascript)
-![CSS](https://img.shields.io/badge/CSS-10%-blue?style=for-the-badge&logo=css3)
-![HTML](https://img.shields.io/badge/HTML-5%-orange?style=for-the-badge&logo=html5)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Grunt](https://img.shields.io/badge/Grunt-FBA919?style=flat-square&logo=grunt&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 
 </div>
 
 </details>
-```
+
 
 
 

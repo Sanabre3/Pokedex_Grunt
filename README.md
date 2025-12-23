@@ -1197,37 +1197,18 @@ Copyright (c) 2024 Seu Nome
 ---
 
 <details>
-<summary>�� <strong>Repository Stats</strong></summary>
+<summary>📊 <strong>Repository Stats</strong></summary>
 
 <div align="center">
 
-### 📈 **GitHub Statistics**
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Sanabre3&theme=vue-dark&show_icons=true&hide_border=true)
 
-<table align="center">
-<tr>
-<td align="center">
-<img src="https://github-readme-stats.vercel.app/api?username=Sanabre3&theme=vue-dark&show_icons=true&hide_border=true&count_private=true" alt="GitHub Stats"/>
-</td>
-</tr>
-<tr>
-<td align="center">
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Sanabre3&layout=compact&theme=vue-dark&hide_border=true&langs_count=8" alt="Most Used Languages"/>
-</td>
-</tr>
-<tr>
-<td align="center">
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=Sanabre3&theme=vue-dark&hide_border=true" alt="GitHub Streak"/>
-</td>
-</tr>
-</table>
-
-### 🏆 **GitHub Metrics**
-
-![GitHub metrics](https://metrics.lecoq.io/Sanabre3?template=classic&config.timezone=America%2FSao_Paulo)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Sanabre3&layout=compact&theme=vue-dark&hide_border=true)
 
 </div>
 
 </details>
+
 
 
 

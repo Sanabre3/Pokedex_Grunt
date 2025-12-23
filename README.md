@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Header]([https://via.placeholder.com/800x200/667eea/FFFFFF?text=Pok%C3%A9dex+Grunt](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12&height=180&section=header&text=Pok%C3%A9dx%20Grunt&fontSize=50&fontColor=fff&animation=twinkling&fontAlignY=35&desc=Uma%20experi%C3%AAncia%20Pok%C3%A9mon%20moderna%20na%20web&descAlignY=55&descSize=15))
+![Header]((https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12&height=180&section=header&text=Pok%C3%A9dx%20Grunt&fontSize=50&fontColor=fff&animation=twinkling&fontAlignY=35&desc=Uma%20experi%C3%AAncia%20Pok%C3%A9mon%20moderna%20na%20web&descAlignY=55&descSize=15))
 
 [![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=for-the-badge&logo=github)](https://github.com/Sanabre3/pokedex-grunt)
 [![Version](https://img.shields.io/badge/Version-1.0.0--beta-orange?style=for-the-badge&logo=semver)](https://github.com/Sanabre3/pokedex-grunt/releases)
@@ -1208,4 +1208,5 @@ Copyright (c) 2024 Seu Nome
 </div>
 
 </details>
+
 

@@ -1164,20 +1164,6 @@ Copyright (c) 2024 Seu Nome
 
 ---
 
-### 👥 **Colaboradores**
-
-<table>
-<tr>
-<td align="center" width="20%"></td>
-<a href="https://github.com/Sanabre3"></a>
-<img src="https://github.com/Sanabre3.png" width="80" style="border-radius: 50%"/>
-<br />
-<strong>Sanabre</strong>
-<br />
-</tr>
-</table>
----
-
 <div align="center">
 
 ### 🚀 **Ready to Explore?**
@@ -1225,6 +1211,7 @@ Copyright (c) 2024 Seu Nome
 </div>
 
 </details>
+
 
 
 

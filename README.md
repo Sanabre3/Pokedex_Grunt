@@ -1196,7 +1196,7 @@ Copyright (c) 2024 Seu Nome
 
 ---
 
-<details>
+
 <summary>📊 <strong>Repository Stats</strong></summary>
 
 <div align="center">
@@ -1207,7 +1207,8 @@ Copyright (c) 2024 Seu Nome
 
 </div>
 
-</details>
+
+
 
 
 

@@ -1196,17 +1196,26 @@ Copyright (c) 2024 Seu Nome
 
 ---
 
+---
 
-<summary>📊 <strong>Repository Stats</strong></summary>
+## 📊 Estatísticas do Projeto
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Sanabre3&theme=vue-dark&show_icons=true&hide_border=true)
+### 🎯 **Métricas do Repositório**
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Sanabre3&layout=compact&theme=vue-dark&hide_border=true)
+![GitHub issues](https://img.shields.io/github/issues/Sanabre3/pokedex-grunt?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/Sanabre3/pokedex-grunt?style=for-the-badge)
+![GitHub stars](https://img.shields.io/github/stars/Sanabre3/pokedex-grunt?style=for-the-badge)
+![GitHub license](https://img.shields.io/github/license/Sanabre3/pokedex-grunt?style=for-the-badge)
+
+![GitHub last commit](https://img.shields.io/github/last-commit/Sanabre3/pokedex-grunt?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/Sanabre3/pokedex-grunt?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/Sanabre3/pokedex-grunt?style=for-the-badge)
 
 </div>
 
+---
 
 
 

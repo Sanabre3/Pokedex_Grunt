@@ -126,16 +126,20 @@ body {
   justify-content: space-between;
 }
 .logo {
+  max-width: 45%;
   font-size: 2rem;
   font-weight: 700;
-  color: #3d7dca;
   display: flex;
   gap: 10px;
   cursor: pointer;
 }
+h1 .logo .pokeball-icon {
+  color: #3d7dca;
+}
 .header-controls {
   display: flex;
   gap: 15px;
+  max-width: 40%;
 }
 button {
   background: #3d7dca;
@@ -213,8 +217,7 @@ button:hover {
   height: 96px;
 }
 .modal-close {
-  position: absolute;
-  background: transparent;
+  background: #2c3e50;
   border: none;
   font-size: 14px;
   cursor: pointer;
@@ -259,6 +262,47 @@ button:hover {
   transition: left 0.5s ease;
 }
 .theme-toggle:hover::before {
+  left: 100%;
+}
+.favorites-toggle {
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.favorites-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+.favorites-toggle.dark-active {
+  background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+}
+.favorites-toggle.dark-active:hover {
+  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+}
+.favorites-toggle .theme-text {
+  position: relative;
+  z-index: 2;
+}
+.favorites-toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+.favorites-toggle:hover::before {
   left: 100%;
 }
 .pokemon-card.loading-details .type-loading {

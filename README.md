@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿# 🎮 Pokédex Grunt
+=======
+# 🎮 Pokédex Grunt
+>>>>>>> 8179d60992f7d9a833a4febbfe9e54e7540d57a5
 
 <div align="center">
 
@@ -21,7 +25,11 @@
 
 ---
 
+<<<<<<< HEAD
 ## 🛠️ Índice
+=======
+## �� Índice
+>>>>>>> 8179d60992f7d9a833a4febbfe9e54e7540d57a5
 
 <details>
 <summary>📋 Navegação Rápida</summary>
@@ -50,7 +58,11 @@
 
 A **Pokédex Grunt** é uma aplicação web moderna que permite explorar e descobrir informações detalhadas sobre Pokémons. Utilizando a [PokéAPI](https://pokeapi.co/), oferece uma experiência rica, responsiva e otimizada para todos os dispositivos.
 
+<<<<<<< HEAD
 ### 🛠️ Principais Diferenciais
+=======
+### �� Principais Diferenciais
+>>>>>>> 8179d60992f7d9a833a4febbfe9e54e7540d57a5
 
 | 🌟 Recurso | 📝 Descrição |
 |------------|--------------|
@@ -180,7 +192,11 @@ const roadmapAtivo = {
 </div>
 
 <details>
+<<<<<<< HEAD
 <summary>🛠️ <strong>Detalhes Técnicos</strong></summary>
+=======
+<summary>�� <strong>Detalhes Técnicos</strong></summary>
+>>>>>>> 8179d60992f7d9a833a4febbfe9e54e7540d57a5
 
 | Categoria | Tecnologia | Versão | Propósito |
 |-----------|------------|---------|-----------|
@@ -273,7 +289,11 @@ docker run -p 8000:8000 pokedex-grunt
 pokedex-grunt/
 ├── 🏗️  dev/              # Build desenvolvimento
 ├── 📦  dist/             # Build produção  
+<<<<<<< HEAD
 ├── 🛠️  src/              # Código fonte
+=======
+├── ��  src/              # Código fonte
+>>>>>>> 8179d60992f7d9a833a4febbfe9e54e7540d57a5
 ├── ⚙️  gruntfile.js      # Configuração build
 ├── 📋  package.json      # Dependências
 └── 📖  README.md         # Documentação
@@ -287,7 +307,11 @@ pokedex-grunt/
 ```
 📁 pokedex-grunt/
 │
+<<<<<<< HEAD
 ├── 🛠️️ dev/                          # Build para desenvolvimento
+=======
+├── ��️ dev/                          # Build para desenvolvimento
+>>>>>>> 8179d60992f7d9a833a4febbfe9e54e7540d57a5
 │   ├── 📁 scripts/
 │   │   ├── 🔌 api.js                 # [2.5KB] Comunicação PokéAPI
 │   │   ├── ⭐ favorites.js           # [1.8KB] Sistema favoritos
@@ -367,7 +391,11 @@ pokedex-grunt/
 
 ---
 
+<<<<<<< HEAD
 ## 🛠️ Como Usar
+=======
+## �� Como Usar
+>>>>>>> 8179d60992f7d9a833a4febbfe9e54e7540d57a5
 
 ### 🎮 **Navegação Básica**
 
@@ -534,7 +562,11 @@ grunt clean            # Limpar temporários
 ### 🛠️ **Criando Novos Temas**
 
 <details>
+<<<<<<< HEAD
 <summary>🛠️ <strong>Tutorial: Novo Tema</strong></summary>
+=======
+<summary>�� <strong>Tutorial: Novo Tema</strong></summary>
+>>>>>>> 8179d60992f7d9a833a4febbfe9e54e7540d57a5
 
 ```less
 // 1️⃣ Criar arquivo: src/styles/themes/meu-tema.less
@@ -597,7 +629,11 @@ document.documentElement.setAttribute('data-theme', 'meu-tema');
 |-------------|------------------|-----------|
 | **📦 Bundle Size** | Minificação + Gzip | 70% ⬇️ |
 | **🖼️ Imagens** | Lazy Loading + WebP | 85% ⬇️ |
+<<<<<<< HEAD
 | **🛠️ API Calls** | Cache + Batching | 60% ⬇️ |
+=======
+| **�� API Calls** | Cache + Batching | 60% ⬇️ |
+>>>>>>> 8179d60992f7d9a833a4febbfe9e54e7540d57a5
 | **🎨 CSS** | Critical CSS + Variables | 40% ⬇️ |
 | **⚡ JavaScript** | ES6 Modules + Tree Shaking | 50% ⬇️ |
 
@@ -723,7 +759,11 @@ npm run deploy
 ### 📝 **Convenções de Código**
 
 <details>
+<<<<<<< HEAD
 <summary>🛠️ <strong>JavaScript Style Guide</strong></summary>
+=======
+<summary>�� <strong>JavaScript Style Guide</strong></summary>
+>>>>>>> 8179d60992f7d9a833a4febbfe9e54e7540d57a5
 
 ```javascript
 // ✅ Classes em PascalCase
@@ -1003,7 +1043,11 @@ docs: 📝 documentação
 style: 🎨 formatação/estilo
 refactor: ♻️ refatoração
 test: 🧪 testes
+<<<<<<< HEAD
 chore: 🛠️ manutenção
+=======
+chore: �� manutenção
+>>>>>>> 8179d60992f7d9a833a4febbfe9e54e7540d57a5
 
 # Exemplos
 git commit -m "feat: adiciona sistema de evolução Pokémon"
@@ -1182,6 +1226,10 @@ Copyright (c) 2024 Seu Nome
 
 ---
 
+<<<<<<< HEAD
+=======
+---
+>>>>>>> 8179d60992f7d9a833a4febbfe9e54e7540d57a5
 
 ## 📊 **Estatísticas do Projeto**
 
@@ -1209,4 +1257,21 @@ Copyright (c) 2024 Seu Nome
 
 </div>
 
+<<<<<<< HEAD
 </details>
+=======
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 8179d60992f7d9a833a4febbfe9e54e7540d57a5

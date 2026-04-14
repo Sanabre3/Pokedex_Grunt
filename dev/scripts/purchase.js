@@ -4,7 +4,7 @@ class PurchaseManager {
             apiVersion: 2,
             apiVersionMinor: 0,
         };
-        this.allowedCardNetworks = ["AMEX", "DISCOVER", "INTERAC", "JCB", "MASTERCARD", "VISA"];
+        this.allowedCardNetworks = ["AMEX", "DISCOVER", "INTERAC", "ELO", "JCB", "MASTERCARD", "VISA"];
         this.allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
         this.tokenizationSpecification = {
             type: "PAYMENT_GATEWAY",
@@ -101,29 +101,69 @@ class PurchaseManager {
             : "Google Pay carregando para checkout de teste...";
 
         if (!this.libraryLoaded) {
+            this.renderFallbackButton(pokemon, container, statusElement, "Finalizar compra de teste");
             return;
         }
 
-        const isAvailable = await this.ensureReadiness();
-        if (!container.isConnected) {
-            return;
-        }
+        try {
+            const isAvailable = await this.ensureReadiness();
+            if (!container.isConnected) {
+                return;
+            }
 
-        if (!isAvailable) {
-            statusElement.textContent = "Google Pay não está disponível neste navegador ou perfil para este teste.";
-            return;
-        }
+            if (!isAvailable) {
+                statusElement.textContent = "Google Pay não está disponível neste navegador ou perfil. Use a compra de teste abaixo.";
+                this.renderFallbackButton(pokemon, container, statusElement, "Finalizar compra de teste");
+                return;
+            }
 
-        const button = this.getPaymentsClient().createButton({
-            allowedPaymentMethods: [this.getBaseCardPaymentMethod()],
-            buttonType: "buy",
-            buttonColor: "black",
-            buttonRadius: 8,
-            onClick: () => this.startCheckout(pokemon, statusElement),
+            const paymentsClient = this.getPaymentsClient();
+            if (!paymentsClient) {
+                throw new Error("PaymentsClient indisponível após validar o Google Pay.");
+            }
+
+            const button = paymentsClient.createButton({
+                allowedPaymentMethods: [this.getBaseCardPaymentMethod()],
+                buttonType: "buy",
+                buttonColor: "black",
+                buttonRadius: 8,
+                onClick: () => this.startCheckout(pokemon, statusElement),
+            });
+
+            container.appendChild(button);
+            statusElement.textContent = "Checkout pronto para teste.";
+        } catch (error) {
+            console.error("Erro ao preparar checkout Google Pay:", error);
+            if (!container.isConnected) {
+                return;
+            }
+
+            statusElement.textContent = "Google Pay indisponível neste momento. Você ainda pode concluir a compra de teste abaixo.";
+            this.renderFallbackButton(pokemon, container, statusElement, "Finalizar compra de teste");
+        }
+    }
+
+    renderFallbackButton(pokemon, container, statusElement, label) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "purchase-fallback-btn";
+        button.textContent = label;
+        button.addEventListener("click", () => this.completeFallbackPurchase(pokemon, statusElement));
+        container.appendChild(button);
+    }
+
+    completeFallbackPurchase(pokemon, statusElement) {
+        this.persistPurchase(pokemon, {
+            paymentMethodData: {
+                info: {
+                    cardNetwork: "Compra teste",
+                    cardDetails: "simulada",
+                },
+            },
         });
 
-        container.appendChild(button);
-        statusElement.textContent = "Checkout pronto para teste.";
+        statusElement.className = "purchase-status success";
+        statusElement.textContent = `${this.capitalizeFirst(pokemon.name)} comprado por ${this.formatPrice(pokemon.price)} em modo teste local.`;
     }
 
     async startCheckout(pokemon, statusElement) {

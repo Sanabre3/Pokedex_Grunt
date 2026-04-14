@@ -8,30 +8,43 @@
     border-bottom: 3px solid @secondary-color;
 }
 
-.container {
-    display: block;
-    text-align: center;
+.header .container {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
 }
 
 .logo {
-    max-width: 45%;
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 700;
     display: flex;
+    align-items: center;
     gap: 10px;
     cursor: pointer;
+
+    @media (max-width: 600px) {
+        font-size: 1.3rem;
+    }
 }
 
 h1 .logo .pokeball-icon {
     color: @primary-color;
-    
 }
 
 .header-controls {
     display: flex;
-    gap: 15px;
-    max-width: 40%;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 button {

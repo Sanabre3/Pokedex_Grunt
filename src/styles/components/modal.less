@@ -1,9 +1,54 @@
+// ===================================
+// MODAL OVERLAY & CONTAINER
+// ===================================
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+
+  &.active {
+    display: flex;
+  }
+}
+
+#pokemon-modal {
+  background: #fff;
+  border-radius: @border-radius;
+  width: 92%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 24px;
+  box-shadow: @shadow;
+}
+
 .modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
   background: @dark-color;
+  color: #fff;
   border: none;
   font-size: 14px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
   cursor: pointer;
+  z-index: 10;
   transition: @transition;
+
+  &:hover {
+    background: darken(@dark-color, 10%);
+  }
 }
 
 .purchase-box {
@@ -59,4 +104,229 @@
 
 .google-pay-container {
   min-height: 40px;
+}
+
+// ===================================
+// POKEMON DETAIL VIEW
+// ===================================
+
+.pokemon-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detail-header {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+
+  @media (max-width: 520px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.pokemon-image-large {
+  flex-shrink: 0;
+
+  img {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+
+    @media (max-width: 520px) {
+      width: 120px;
+      height: 120px;
+    }
+  }
+}
+
+.pokemon-basic-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: capitalize;
+  }
+}
+
+.pokemon-description {
+  font-size: 0.88rem;
+  color: #5f6368;
+  line-height: 1.5;
+  margin: 0;
+
+  &.loading-text {
+    color: #aaa;
+    font-style: italic;
+  }
+}
+
+// ===================================
+// DETAIL TABS
+// ===================================
+
+.detail-tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 8px;
+}
+
+.tab-btn {
+  padding: 7px 16px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background: #f0f0f0;
+  color: #555;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &.active {
+    background: #4ecdc4;
+    border-color: #4ecdc4;
+    color: white;
+  }
+
+  &.loaded:not(.active) {
+    border-color: #4ecdc4;
+    color: #2a9d8f;
+  }
+}
+
+.tab-content {
+  min-height: 80px;
+}
+
+.tab-panel {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+// ===================================
+// STATS PANEL
+// ===================================
+
+.stats-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.stat-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  .stat-name {
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .stat-value {
+    color: #333;
+    font-weight: 700;
+  }
+}
+
+.stat-progress {
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.stat-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #4ecdc4, #44a08d);
+  transition: width 0.5s ease;
+}
+
+// ===================================
+// MEASUREMENTS
+// ===================================
+
+.pokemon-measurements {
+  display: flex;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.measurement {
+  display: flex;
+  gap: 6px;
+  font-size: 0.9rem;
+
+  .label {
+    color: #666;
+  }
+
+  .value {
+    font-weight: 700;
+  }
+}
+
+// ===================================
+// ABILITIES & MOVES
+// ===================================
+
+.abilities-list {
+  padding: 12px 0;
+  font-size: 0.93rem;
+  line-height: 1.6;
+
+  strong {
+    color: #2a9d8f;
+  }
+}
+
+.moves-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.move-tag {
+  padding: 4px 12px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: #f8f9fa;
+  text-transform: capitalize;
+  cursor: default;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #e8f5e9;
+    border-color: #4ecdc4;
+  }
 }

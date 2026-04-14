@@ -11,16 +11,31 @@ body {
 }
 
 #pokemon-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
-  gap: 30px !important;
-  padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+    padding: 20px 0;
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 16px;
+    }
+
+    @media (max-width: 480px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 12px 0;
+    }
+
+    @media (max-width: 320px) {
+        grid-template-columns: 1fr;
+    }
 }
 
 #pokemon-grid .pokemon-card {
-  width: auto !important;
-  max-width: none !important;
-  margin: 0 !important;
+    width: auto;
+    max-width: none;
+    margin: 0;
 }
 // Lazy Loading Styles
 .pokemon-img {

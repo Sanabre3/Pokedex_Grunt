@@ -59,6 +59,8 @@ class PokemonManager {
         this.currentPage = 1;
         this.pokemonsPerPage = 20;
         this.lazyLoader = new LazyImageLoader();
+        this.activeFilters = { type: '', generation: '' };
+        this.loadSession = 0;
         this.initTheme();
         this.init();
     }
@@ -113,10 +115,20 @@ class PokemonManager {
     }
 
     async loadPokemons(page = 1) {
+        this.loadSession++;
+        const session = this.loadSession;
         this.showLoading(true);
 
         const offset = (page - 1) * this.pokemonsPerPage;
-        const data = await this.api.fetchPokemonList(this.pokemonsPerPage, offset);
+        let data;
+        try {
+            data = await this.api.fetchPokemonList(this.pokemonsPerPage, offset);
+        } catch (error) {
+            console.error('Erro ao carregar página:', error);
+            this.showError('Não foi possível carregar os Pokémons. Verifique sua conexão.');
+            return;
+        }
+        if (session !== this.loadSession) return;
 
         this.currentPokemons = data.results.map((item, index) => {
             const pokemonId = offset + index + 1;
@@ -139,17 +151,21 @@ class PokemonManager {
             };
         });
 
+        this.activeFilters = { type: '', generation: '' };
         this.filteredPokemons = [...this.currentPokemons];
         this.renderPokemonGrid();
         this.updatePagination(page, data.count);
-        this.loadPokemonDetailsLazy();
+        this.resetFilterSelects();
+        this.loadPokemonDetailsLazy(session);
     }
 
-    async loadPokemonDetailsLazy() {
+    async loadPokemonDetailsLazy(session) {
         const batchSize = 3;
         const delay = 150;
         
         for (let i = 0; i < this.currentPokemons.length; i += batchSize) {
+            if (session !== this.loadSession) return;
+
             const batch = this.currentPokemons.slice(i, i + batchSize);
             
             const promises = batch.map(async (pokemon) => {
@@ -166,6 +182,7 @@ class PokemonManager {
             });
 
             const results = await Promise.all(promises);
+            if (session !== this.loadSession) return;
             
             results.forEach(result => {
                 if (result) {
@@ -223,6 +240,7 @@ class PokemonManager {
         }
 
         card.classList.add('details-loaded');
+        card.classList.remove('loading-details');
     }
 
     renderPokemonGrid() {
@@ -408,7 +426,7 @@ class PokemonManager {
             </div>
             
             <div class="detail-tabs">
-                <button class="tab-btn active" data-tab="stats">Estatísticas</button>
+                <button class="tab-btn active loaded" data-tab="stats">Estatísticas</button>
                 <button class="tab-btn" data-tab="abilities" disabled>Habilidades</button>
                 <button class="tab-btn" data-tab="moves" disabled>Movimentos</button>
             </div>
@@ -597,12 +615,16 @@ class PokemonManager {
             prevBtn.addEventListener("click", () => {
                 if (this.currentPage > 1) {
                     this.currentPage--;
+                    prevBtn.disabled = true;
+                    nextBtn.disabled = true;
                     this.loadPokemons(this.currentPage);
                 }
             });
         if (nextBtn)
             nextBtn.addEventListener("click", () => {
                 this.currentPage++;
+                prevBtn.disabled = true;
+                nextBtn.disabled = true;
                 this.loadPokemons(this.currentPage);
             });
 
@@ -655,6 +677,7 @@ class PokemonManager {
             } else {
                 pokemon = await this.api.fetchPokemon(parseInt(query));
             }
+            pokemon.loaded = true;
             pokemon = this.ensurePokemonCommerceData(pokemon);
             this.filteredPokemons = pokemon ? [pokemon] : [];
             this.renderPokemonGrid();
@@ -668,36 +691,39 @@ class PokemonManager {
     }
 
     filterByType(type) {
-        if (!type) {
-            this.filteredPokemons = [...this.currentPokemons];
-        } else {
-            this.filteredPokemons = this.currentPokemons.filter((pokemon) =>
-                (pokemon.types || []).some(
-                    (pokemonType) => pokemonType.type.name === type
-                )
-            );
-        }
-        this.renderPokemonGrid();
+        this.activeFilters.type = type;
+        this.applyFilters();
     }
 
     filterByGeneration(generation) {
-        if (!generation) {
-            this.filteredPokemons = [...this.currentPokemons];
-            this.renderPokemonGrid();
-            return;
-        }
+        this.activeFilters.generation = generation;
+        this.applyFilters();
+    }
 
-        const ranges = {
-            1: [1, 151],
-            2: [152, 251],
-            3: [252, 386],
-        };
+    applyFilters() {
+        const { type, generation } = this.activeFilters;
+        const ranges = { 1: [1, 151], 2: [152, 251], 3: [252, 386] };
 
-        const [min, max] = ranges[generation] || [1, 151];
-        this.filteredPokemons = this.currentPokemons.filter(
-            (pokemon) => pokemon.id >= min && pokemon.id <= max
-        );
+        this.filteredPokemons = this.currentPokemons.filter((pokemon) => {
+            const passType = !type || (pokemon.types || []).some(
+                (pokemonType) => pokemonType.type.name === type
+            );
+            let passGen = true;
+            if (generation) {
+                const [min, max] = ranges[generation] || [1, 151];
+                passGen = pokemon.id >= min && pokemon.id <= max;
+            }
+            return passType && passGen;
+        });
+
         this.renderPokemonGrid();
+    }
+
+    resetFilterSelects() {
+        const typeFilter = document.getElementById("type-filter");
+        const generationFilter = document.getElementById("generation-filter");
+        if (typeFilter) typeFilter.value = '';
+        if (generationFilter) generationFilter.value = '';
     }
 
     switchTab(tabName) {

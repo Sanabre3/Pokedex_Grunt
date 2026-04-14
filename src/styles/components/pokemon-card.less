@@ -19,6 +19,8 @@
     box-shadow: @shadow;
     transition: @transition;
     align-items: stretch;
+    display: flex;
+    flex-direction: column;
 
     &:hover {
         transform: translateY(-3px);
@@ -29,4 +31,25 @@
 .pokemon-image img {
     width: 96px;
     height: 96px;
+}
+
+.pokemon-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pokemon-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.pokemon-price {
+    color: #0f9d58;
+    font-size: 1rem;
+    font-weight: 700;
 }

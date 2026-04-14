@@ -5,3 +5,58 @@
   cursor: pointer;
   transition: @transition;
 }
+
+.purchase-box {
+  display: grid;
+  gap: 12px;
+  margin: 16px 0;
+  padding: 16px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(15, 157, 88, 0.08) 0%, rgba(255, 203, 5, 0.16) 100%);
+  border: 1px solid rgba(15, 157, 88, 0.16);
+}
+
+.purchase-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  strong {
+    color: #0f9d58;
+    font-size: 1.1rem;
+  }
+}
+
+.purchase-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: @dark-color;
+}
+
+.purchase-note {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.purchase-status {
+  min-height: 20px;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: #5f6368;
+
+  &.success {
+    color: #0f9d58;
+  }
+
+  &.error {
+    color: @error-color;
+  }
+}
+
+.google-pay-container {
+  min-height: 40px;
+}

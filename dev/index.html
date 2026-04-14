@@ -8,6 +8,131 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .pokemon-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pokemon-info {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .pokemon-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .pokemon-price {
+            color: #0f9d58;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .buy-btn {
+            background: linear-gradient(135deg, #0f9d58 0%, #34a853 100%);
+            color: #fff;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+        }
+
+        .buy-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 20px rgba(15, 157, 88, 0.24);
+        }
+
+        .purchase-box {
+            display: grid;
+            gap: 12px;
+            margin: 16px 0;
+            padding: 16px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(15, 157, 88, 0.08) 0%, rgba(255, 203, 5, 0.16) 100%);
+            border: 1px solid rgba(15, 157, 88, 0.16);
+        }
+
+        .purchase-summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .purchase-summary strong {
+            color: #0f9d58;
+            font-size: 1.1rem;
+        }
+
+        .purchase-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #2c3e50;
+        }
+
+        .purchase-note {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .purchase-status {
+            min-height: 20px;
+            font-size: 0.92rem;
+            line-height: 1.4;
+            color: #5f6368;
+        }
+
+        .purchase-status.success {
+            color: #0f9d58;
+        }
+
+        .purchase-status.error {
+            color: #f44336;
+        }
+
+        .google-pay-container {
+            min-height: 40px;
+        }
+
+        body.dark-theme .purchase-box {
+            background: linear-gradient(135deg, rgba(52, 168, 83, 0.18) 0%, rgba(255, 203, 5, 0.12) 100%);
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark-theme .purchase-label,
+        body.dark-theme .purchase-note {
+            color: var(--text-color);
+        }
+
+        body.dark-theme .purchase-status {
+            color: #b0b8c4;
+        }
+
+        body.dark-theme .purchase-status.success,
+        body.dark-theme .pokemon-price,
+        body.dark-theme .purchase-summary strong {
+            color: #81c995;
+        }
+
+        body.dark-theme .purchase-status.error {
+            color: #f28b82;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -70,10 +195,11 @@
             </div>
         </div>
     </div>
-    <script src="@@ENDERECO_DO_JS_THEME"></script>
     <script src="scripts/api.js"></script>
     <script src="scripts/pokemon.js"></script>
     <script src="scripts/favorites.js"></script>
+    <script src="scripts/purchase.js"></script>
     <script src="scripts/main.js"></script>
+    <script async src="https://pay.google.com/gp/p/js/pay.js" onload="onGooglePayLoaded()"></script>
 </body>
 </html>

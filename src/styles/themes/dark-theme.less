@@ -105,6 +105,33 @@ body.dark-theme {
     }
   }
 
+  .purchase-box {
+    background: linear-gradient(135deg, rgba(52, 168, 83, 0.18) 0%, rgba(255, 203, 5, 0.12) 100%);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .purchase-label,
+  .purchase-note {
+    color: var(--text-color);
+  }
+
+  .purchase-status {
+    color: #b0b8c4;
+
+    &.success {
+      color: #81c995;
+    }
+
+    &.error {
+      color: #f28b82;
+    }
+  }
+
+  .pokemon-price,
+  .purchase-summary strong {
+    color: #81c995;
+  }
+
   // Tabs
   .tab-btn {
     background-color: var(--card-bg);

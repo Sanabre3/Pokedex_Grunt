@@ -58,6 +58,7 @@ module.exports = function (grunt) {
             { match: 'ENDERECO_DO_JS_API', replacement: 'scripts/api.js' },
             { match: 'ENDERECO_DO_JS_POKEMON', replacement: 'scripts/pokemon.js' },
             { match: 'ENDERECO_DO_JS_FAVORITES', replacement: 'scripts/favorites.js' },
+            { match: 'ENDERECO_DO_JS_PURCHASE', replacement: 'scripts/purchase.js' },
             { match: 'ENDERECO_DO_JS_MAIN', replacement: 'scripts/main.js' }
           ]
         },
@@ -78,6 +79,7 @@ module.exports = function (grunt) {
             { match: 'ENDERECO_DO_JS_API', replacement: 'scripts/api.min.js' },
             { match: 'ENDERECO_DO_JS_POKEMON', replacement: 'scripts/pokemon.min.js' },
             { match: 'ENDERECO_DO_JS_FAVORITES', replacement: 'scripts/favorites.min.js' },
+            { match: 'ENDERECO_DO_JS_PURCHASE', replacement: 'scripts/purchase.min.js' },
             { match: 'ENDERECO_DO_JS_MAIN', replacement: 'scripts/main.min.js' }
           ]
         },
@@ -101,6 +103,7 @@ module.exports = function (grunt) {
           "dist/scripts/api.min.js": ["dist/scripts/api.js"],
           "dist/scripts/pokemon.min.js": ["dist/scripts/pokemon.js"],
           "dist/scripts/favorites.min.js": ["dist/scripts/favorites.js"],
+          "dist/scripts/purchase.min.js": ["dist/scripts/purchase.js"],
           "dist/scripts/main.min.js": ["dist/scripts/main.js"],
         },
       },

@@ -123,6 +123,7 @@ class PokemonManager {
             return {
                 id: pokemonId,
                 name: item.name,
+                price: this.calculatePokemonPrice(pokemonId),
                 url: item.url,
                 sprites: {
                     front_default: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`,
@@ -170,7 +171,8 @@ class PokemonManager {
                 if (result) {
                     this.currentPokemons[result.index] = { 
                         ...result.detailed, 
-                        loaded: true 
+                        loaded: true,
+                        price: this.calculatePokemonPrice(result.detailed.id)
                     };
                     this.updatePokemonCardInPlace(result.detailed, result.index);
                 }
@@ -238,7 +240,44 @@ class PokemonManager {
         });
     }
 
+    ensurePokemonCommerceData(pokemon) {
+        if (!pokemon) return pokemon;
+        if (!pokemon.price) {
+            pokemon.price = this.calculatePokemonPrice(pokemon.id);
+        }
+        return pokemon;
+    }
+
+    calculatePokemonPrice(pokemonId) {
+        const normalizedId = Number(pokemonId) || 1;
+        const basePrice = 14.9;
+        const rarityFactor = ((normalizedId % 12) + 1) * 3.45;
+        return Number((basePrice + rarityFactor).toFixed(2));
+    }
+
+    formatPrice(price) {
+        return new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+        }).format(price || 0);
+    }
+
+    findPokemonById(pokemonId) {
+        const normalizedId = Number(pokemonId);
+        const pokemonCollections = [this.filteredPokemons || [], this.currentPokemons || []];
+
+        for (const collection of pokemonCollections) {
+            const pokemon = collection.find((item) => item.id === normalizedId);
+            if (pokemon) {
+                return this.ensurePokemonCommerceData(pokemon);
+            }
+        }
+
+        return null;
+    }
+
     createPokemonCard(pokemon, index) {
+        pokemon = this.ensurePokemonCommerceData(pokemon);
         const card = document.createElement("div");
         card.className = `pokemon-card ${pokemon.loaded ? 'details-loaded' : 'loading-details'}`;
         card.dataset.pokemonId = pokemon.id;
@@ -287,6 +326,10 @@ class PokemonManager {
                         <span class="stat-value ${pokemon.loaded ? '' : 'loading-stat'}">${pokemon.stats?.[2]?.base_stat || "-"}</span>
                     </div>
                 </div>
+                <div class="pokemon-card-footer">
+                    <span class="pokemon-price">${this.formatPrice(pokemon.price)}</span>
+                    <button class="buy-btn" data-pokemon-id="${pokemon.id}">Comprar</button>
+                </div>
             </div>
         `;
 
@@ -310,17 +353,28 @@ class PokemonManager {
             });
         }
 
+        const buyBtn = card.querySelector(".buy-btn");
+        if (buyBtn) {
+            buyBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                this.showPokemonDetails(pokemon);
+            });
+        }
+
         return card;
     }
 
     async showPokemonDetails(pokemon) {
+        pokemon = this.ensurePokemonCommerceData(pokemon);
         const modal = document.getElementById("modal-overlay");
         const modalContent = document.getElementById("modal-content");
         if (!modal || !modalContent) return;
 
         modalContent.innerHTML = this.createDetailedViewSkeleton(pokemon);
+        modalContent.dataset.purchasePokemonId = String(pokemon.id);
         modal.classList.add("active");
         document.body.style.overflow = "hidden";
+        window.purchaseManager?.renderPurchaseButton(pokemon, modalContent);
         this.loadModalDetailsLazy(pokemon, modalContent);
     }
 
@@ -340,6 +394,15 @@ class PokemonManager {
                     <h2>${this.capitalizeFirst(pokemon.name)}</h2>
                     <p class="pokemon-id">#${pokemon.id.toString().padStart(3, "0")}</p>
                     <div class="pokemon-types">${types}</div>
+                    <div class="purchase-box">
+                        <div class="purchase-summary">
+                            <span class="purchase-label">Compra teste</span>
+                            <strong>${this.formatPrice(pokemon.price)}</strong>
+                        </div>
+                        <div class="google-pay-container" data-google-pay-container></div>
+                        <p class="purchase-note">Checkout em ambiente TEST do Google Pay para validar a jornada de compra.</p>
+                        <div class="purchase-status" data-purchase-status></div>
+                    </div>
                     <p class="pokemon-description loading-text">🔍 Carregando descrição...</p>
                 </div>
             </div>
@@ -592,6 +655,7 @@ class PokemonManager {
             } else {
                 pokemon = await this.api.fetchPokemon(parseInt(query));
             }
+            pokemon = this.ensurePokemonCommerceData(pokemon);
             this.filteredPokemons = pokemon ? [pokemon] : [];
             this.renderPokemonGrid();
         } catch (error) {
@@ -757,10 +821,3 @@ class PokemonManager {
         }
     }
 }
-
-// Inicialização quando o DOM estiver carregado
-document.addEventListener('DOMContentLoaded', () => {
-    const api = new PokeAPI();
-    window.pokeAPI = api;
-    window.pokemonManager = new PokemonManager(api);
-});
